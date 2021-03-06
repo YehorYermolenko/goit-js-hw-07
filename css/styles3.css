@@ -1,0 +1,9 @@
+#gallery {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.gallery__item {
+  list-style-type: none;
+  box-shadow: 7px -5px 10px 0px #008250;
+}
