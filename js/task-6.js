@@ -1,15 +1,12 @@
 const typeInItput = document.querySelector("#validation-input");
+let validNumber = Number(typeInItput.getAttribute("data-length"));
 
-const validNumber = typeInItput.getAttribute("data-length");
+const onChange = (el) =>
+  el.target.value.length === validNumber ? updateClass(el, "valid", "invalid") : updateClass(el, "invalid", "valid");
 
-const onInputChange = (elem) => {
-  if (elem.target.value.length === Number(validNumber)) {
-    typeInItput.classList.add("valid");
-    typeInItput.classList.remove("invalid");
-  } else {
-    typeInItput.classList.add("invalid");
-    typeInItput.classList.remove("valid");
-  }
-};
+function updateClass(elem, addClass, removeClass) {
+  elem.target.classList.add(addClass);
+  elem.target.classList.remove(removeClass);
+}
 
-typeInItput.addEventListener("change", onInputChange);
+typeInItput.addEventListener("change", onChange);
